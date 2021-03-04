@@ -50,7 +50,7 @@ class QuestionForm extends Component {
       return <Answer author={author} user={user} question={question} />;
     } else {
       return (
-        <div className="container">
+        <div className="tweet">
           <h3 className="center">
             <img
               src={author.avatarURL}

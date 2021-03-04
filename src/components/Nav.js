@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
 
 function Nav (props) {   
-
-    return (
+    const { name, avatarURL } = props.user
+    return ( 
       <nav className='nav'>
         <ul>
           <li>
@@ -24,7 +24,7 @@ function Nav (props) {
             </NavLink>
           </li>
           <li>
-            { props.user === undefined ? '' : props.user.name }
+          <img height="20px" src={avatarURL} /> { props.user === undefined ? '' : name }
           </li>
           <li>
           <a className="submit" align="center" onClick={() => logout(props)}>

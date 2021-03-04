@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://i.ebayimg.com/images/g/tw8AAOSwl8NVYofP/s-l300.jpg',
+    avatarURL: 'https://www.vhv.rs/file/max/19/194236_wonderwoman-logo-png.jpg',
     answers: {
       '8xf0y6ziyjabvozdd253nd': 'optionOne',
       '6ni6ok3ym7mf1p33lnez': 'optionTwo',
@@ -15,7 +15,7 @@ let users = {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
     avatarURL:
-      'https://image.spreadshirtmedia.com/image-server/v1/compositions/T210A2PA3176PT17X40Y10D11873844FS4099/views/1,width=650,height=650,appearanceId=2/battered-rebel-alliance-symbol-as-the-result-combatting-the-grasp-of-the-galactic-empire.jpg',
+      'https://webcomicms.net/sites/default/files/clipart/165955/spiderman-face-clipart-165955-4283075.jpg',
     answers: {
       vthrdm985a262al8qx3do: 'optionOne',
       xj352vofupe1dqz9emx13r: 'optionTwo',
@@ -26,7 +26,7 @@ let users = {
     id: 'johndoe',
     name: 'John Doe',
     avatarURL:
-      'https://i.pinimg.com/originals/c5/c5/35/c5c5352957b56a85a514fb31385b0a63.jpg',
+      'http://webcomicms.net/sites/default/files/clipart/129224/batman-icon-129224-6523819.png',
     answers: {
       xj352vofupe1dqz9emx13r: 'optionOne',
       vthrdm985a262al8qx3do: 'optionTwo',

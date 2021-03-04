@@ -7,7 +7,9 @@ import 'react-tabs/style/react-tabs.css';
 
 class Dashboard extends Component {
   render() {
-    const { answered, unanswered } = this.props;
+    
+    const { answered, unanswered, user } = this.props;
+    console.log('Dashboard props: ', user)
     return (
       <div>
         <h3 className="center">Your Dashboard</h3>
@@ -38,7 +40,7 @@ class Dashboard extends Component {
               {answered.map((q) => {
                 return (
                   <li key={q.id}>
-                    <Question id={q.id} />
+                    <Answer question={q} user={user} author={q.author}/>
                   </li>
                 );
               })}
@@ -50,12 +52,15 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ questions, authedUser }) {
+function mapStateToProps({ questions, authedUser, users }) {
     const answered = Object.keys(questions).map((key) => {return questions[key]}).filter((question) => question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser) )
     const unanswered = Object.keys(questions).map((key) => {return questions[key]}).filter((question) => !question.optionOne.votes.includes(authedUser) && !question.optionTwo.votes.includes(authedUser) )
+    const user = users[authedUser]
+
   return {
     answered,
     unanswered,
+    user,
   };
 }
 export default connect(mapStateToProps)(Dashboard);

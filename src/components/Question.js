@@ -4,15 +4,15 @@ import { Link, withRouter } from 'react-router-dom';
 
 class Question extends Component {
   render() {
-    const { id, question, user } = this.props;
+    const { question, user } = this.props;
     
     if (question === null) {
       return <p>This Question doesn't exist</p>;
     }
 
     return (
-      <Link to={`/question/${id}`} className="tweet">
-        <img src={user.avatarURL} alt={`Avatar of ${user.name}`} className="avatar" />
+      <Link to={`/question/${question.id}`} className="tweet">
+        <div className="circle"><img src={user.avatarURL} alt={`Avatar of ${user.name}`} className="avatar" /></div>
         <div className="tweet-info">
           <h3>{user.name} asks: </h3>
           <p>Would you rather...</p>

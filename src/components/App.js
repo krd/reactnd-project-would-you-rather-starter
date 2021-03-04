@@ -20,18 +20,6 @@ class App extends Component {
       return <AppScreen user={this.props.user} />;
     }
     return <LoginScreen />;
-    // return (
-    //   <Router>
-    //     <div className="container">
-    //       <Nav user={this.props.user} />
-    //       <Route path="/" exact component={Dashboard} />
-    //       <Route path="/leaderboard" component={LeaderBoard} />
-    //       <Route path="/question/:id" component={QuestionForm} />
-    //       <Route path="/new" component={NewQuestion} />
-    //       <Route path="/login" component={Login} />
-    //     </div>
-    //   </Router>
-    // );
   }
 }
 
