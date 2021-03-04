@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import React from 'react'
+import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser';
 
-export default function Nav () {
+function Nav (props) {   
+
     return (
       <nav className='nav'>
         <ul>
@@ -21,11 +24,28 @@ export default function Nav () {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/login' activeClassName='active'>
-              Login
-            </NavLink>
+            { props.user === undefined ? '' : props.user.name }
+          </li>
+          <li>
+          <a className="submit" align="center" onClick={() => logout(props)}>
+            Logout
+          </a>
           </li>
         </ul>
       </nav>
     )
+  }  
+
+  function logout(props) {
+      const { dispatch } = props
+      dispatch(setAuthedUser(undefined))
   }
+
+  function mapStateToProps({ users }) {
+    const registeredUsers = Object.values(users);
+    return { registeredUsers };
+  }
+  
+  export default connect(mapStateToProps)(Nav);
+
+//   export default Nav;

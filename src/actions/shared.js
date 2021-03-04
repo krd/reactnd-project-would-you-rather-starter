@@ -1,16 +1,17 @@
 import { getInitialData } from '../utils/api'
-import { fetchQuestions } from './questions'
-// import { setAuthedUser } from './authedUser'
+import { setAuthedUser } from './authedUser'
+import { getQuestions } from './questions'
+import { getUsers } from './users'
 
-// const AUTHED_ID = 'tylermcginnis'
+const AUTHED_ID = 'tylermcginnis'
 
 export function handleInitialData(action) {
     return (dispatch) => {
         
         return getInitialData().then(({ users, questions }) => {
-            dispatch(fetchQuestions(questions))
-            // dispatch(setAuthedUser(AUTHED_ID))
-            console.log('Users: ', users)
+            dispatch(getUsers(users))
+            dispatch(setAuthedUser(AUTHED_ID))
+            dispatch(getQuestions(questions))        
         })
     }
 }
