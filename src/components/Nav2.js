@@ -2,11 +2,13 @@ import { NavLink } from 'react-router-dom'
 import React from 'react'
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
+import { Button, Navbar, Nav } from 'react-bootstrap';
 
-function Nav (props) {   
+function Nav2 (props) {   
     const { name, avatarURL } = props.user
     return ( 
-      <nav className='nav'>
+    //   <nav className='nav'>
+      <Navbar>
         <ul>
           <li>
             <NavLink to='/' exact activeClassName='active'>
@@ -32,7 +34,8 @@ function Nav (props) {
           </a>
           </li>
         </ul>
-      </nav>
+      {/* </nav> */}
+      </Navbar>
     )
   }  
 
@@ -46,6 +49,6 @@ function Nav (props) {
     return { registeredUsers };
   }
   
-  export default connect(mapStateToProps)(Nav);
+  export default connect(mapStateToProps)(Nav2);
 
 //   export default Nav;

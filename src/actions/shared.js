@@ -7,7 +7,7 @@ const AUTHED_ID = 'tylermcginnis'
 
 export function handleInitialData(action) {
     return (dispatch) => {
-        
+        console.log('in handleIntialData with action: ', action)
         return getInitialData().then(({ users, questions }) => {
             dispatch(getUsers(users))
             dispatch(setAuthedUser(AUTHED_ID))

@@ -11,9 +11,9 @@ class Question extends Component {
     }
 
     return (
-      <Link to={`/question/${question.id}`} className="tweet">
+      <Link to={`/question/${question.id}`}>
         <div className="circle"><img src={user.avatarURL} alt={`Avatar of ${user.name}`} className="avatar" /></div>
-        <div className="tweet-info">
+        <div className="info">
           <h3>{user.name} asks: </h3>
           <p>Would you rather...</p>
           <div>
