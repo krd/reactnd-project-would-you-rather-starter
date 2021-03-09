@@ -3,48 +3,30 @@ import React from 'react';
 export default function User(props) {
   const { user } = props;
   return (
-
-    <section class="contact-section bg-black">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-                </div> */}
+    <section className="contact-section bg-black">
+      <div className="container">
+        <div className="card py-4 h-100">
+          <div className="card-body text-center">
+            <img
+              src={user.avatarURL}
+              alt={`Avatar of ${user.name}`}
+              className="avatar"
+            />
+            <h4 className="text-uppercase m-0">{user.name}</h4>
+            <hr className="my-4" />
+            <div className="small text-black-50">
+            Questions Created {user.questions.length}
             </div>
-        </section>
+            <div className="small text-black-50">
+            Questions Answered {Object.keys(user.answers).length}
+            </div>
+            <div className="small text-black-50">
+            <h4 className="text-uppercase m-0">Score { user.questions.length + +Object.keys(user.answers).length }</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     // <div >
     //   <img
@@ -61,7 +43,7 @@ export default function User(props) {
     //         <span>Questions Answered {Object.keys(user.answers).length}</span>
     //     </div>
     //   </div>
-    //   <div> 
+    //   <div>
     //       <div><span>Score { user.questions.length + +Object.keys(user.answers).length }</span></div>
     //     </div>
     // </div>

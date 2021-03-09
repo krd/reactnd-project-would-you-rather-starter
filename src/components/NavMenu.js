@@ -5,7 +5,6 @@ import { Button, Navbar, Nav, NavItem } from 'react-bootstrap';
 import { NavLink, withRouter, Router, Link } from 'react-router-dom';
 
 function NavMenu(props) {
-  console.log('navmenu props: ', props.user);
   const { name, avatarURL } = props.user;
   return (
     <Navbar
@@ -52,15 +51,9 @@ function NavMenu(props) {
         </Nav>
         <Nav>
           <NavItem>
-            {/* <NavItem href="/">
-              <Nav.Link as={Link} className="nav-link js-scroll-trigger">
-                <div className="circle-sm">
-                  <img height="25px" src={avatarURL} />{' '}
-                </div>
-              </Nav.Link>
-            </NavItem> */}
             <NavItem href="/">
             <Nav.Link as={Link} to="/" className="nav-link js-scroll-trigger">
+              {/* <div><img class="circle-sm" src={avatarURL}/></div> */}
               {name}
             </Nav.Link>
             </NavItem>

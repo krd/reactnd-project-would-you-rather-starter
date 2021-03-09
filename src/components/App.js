@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Dashboard from './Dashboard';
 import QuestionForm from './QuestionForm';
 import Home from './Home';
 import NewQuestion from './NewQuestion';
 import NavMenu from './NavMenu';
-import Nav2 from './Nav2';
 import LeaderBoard from './LeaderBoard';
 import Login from './Login';
 import { handleInitialData } from '../actions/shared';
@@ -24,7 +23,6 @@ class App extends Component {
       console.log(' Going to app: ', this.props);
       return <AppScreen user={user} />;
     }
-    console.log('heading to login screen');
     return <LoginScreen />;
   }
 }
@@ -47,12 +45,16 @@ function AppScreen(props) {
           <Dashboard /> */}
           {/* <Nav2 user={props.user} /> */}
           <NavMenu user={props.user} />
+          <div>
+          <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/leaderboard" exact component={LeaderBoard} />
-          <Route path="/question/:id" exact component={QuestionForm} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/leaderboard" component={LeaderBoard} />
+          <Route path="/question/:id" component={QuestionForm} />
           <Route path="/new" exact component={NewQuestion} />
           <Route path="/login" component={Login} />
+          </Switch>
+          </div>
         </Fragment>
       </Router>
     </div>

@@ -7,63 +7,63 @@ import 'react-tabs/style/react-tabs.css';
 
 class Dashboard extends Component {
   render() {
-    const { answered, unanswered, user } = this.props;
-    return (
-      <div className="container">
-        <div className="center"><h3 >Your Dashboard</h3></div>
-        <Tabs id="uncontrolled-tab-example">
-          <TabList>
-            <Tab title="Unanswered">Unanswered Questions</Tab>
-            <Tab title="Answered">Answered Questions</Tab>
-          </TabList>
+    const { answered, unanswered, user, users } = this.props;
 
-          <TabPanel>
-            <div>
-              Or I shall live your epitaph to make, Or you survive when I in
-              earth am rotten; From hence your memory death cannot take,
-              Although in me each part will be forgotten. Your name from hence
-              immortal life shall have, Though I, once gone, to all the world
-              must die: The earth can yield me but a common grave, When you
-              entombed in men's eyes shall lie. Your monument shall be my gentle
-              verse, Which eyes not yet created shall o'er-read;
-            </div>
-            {unanswered.length === 0 ? (
-              <h2>You have no unanswered questions</h2>
-            ) : (
-              ''
-            )}
-            <ul className="dashboardList">
-              {unanswered.map((q) => {
-                return (
-                  <li key={q.id}>
-                    <Question id={q.id} />
-                  </li>
-                );
-              })}
-            </ul>
-          </TabPanel>
-          <TabPanel>
-            <div>
-              Or I shall live your epitaph to make, Or you survive when I in
-              earth am rotten; From hence your memory death cannot take,
-              Although in me each part will be forgotten. Your name from hence
-              immortal life shall have, Though I, once gone, to all the world
-              must die: The earth can yield me but a common grave, When you
-              entombed in men's eyes shall lie. Your monument shall be my gentle
-              verse, Which eyes not yet created shall o'er-read;
-            </div>
-            <ul className="dashboardList">
-              {answered.map((q) => {
-                return (
-                  <li key={q.id}>
-                    <Answer question={q} user={user} author={q.author} />
-                  </li>
-                );
-              })}
-            </ul>
-          </TabPanel>
-        </Tabs>
-      </div>
+    return (
+       
+      <section className="dashboard-section text-center" id="dashboard">
+        <div className="col-lg-8 mx-auto">
+          <h2 className="text-white mb-4">Your Dashboard</h2>
+          <p className="text-white-50">
+            Outlines your current status in the game. Broken down by questions
+            you've answered and those unanswered.
+          </p>
+        </div>
+        <div className="container">
+          <Tabs id="uncontrolled-tab-example">
+            <TabList className="nav nav-tabs nav-fill">
+              <Tab title="Unanswered" style={{ background: '#64a19d' }}>
+              Unanswered
+              </Tab>
+              <Tab title="Answered">
+                Answered
+              </Tab>
+            </TabList>
+
+            <TabPanel>
+              {unanswered.length === 0 ? (
+                <h2>You have no unanswered questions</h2>
+              ) : (
+                ''
+              )}
+              <ul className="dashboardList">
+                {unanswered.map((q) => {
+                  return (
+                    <li key={q.id}>
+                      <Question id={q.id} />
+                    </li>
+                  );
+                })}
+              </ul>
+            </TabPanel>
+            <TabPanel className="center">
+              <ul className="dashboardList">
+                {answered.map((q) => {
+                  const author = users[q.author];
+                  return (
+                    <li key={q.id}>
+                      <Answer question={q} user={user} author={author} />
+                    </li>
+                  );
+                })}
+              </ul>
+            </TabPanel>
+          </Tabs>
+        </div>
+        <div className="container">
+          <img className="img-fluid" src={require('../assets/img/ipad.png')} alt="" />
+        </div>
+      </section>
     );
   }
 }
@@ -93,6 +93,7 @@ function mapStateToProps({ questions, authedUser, users }) {
     answered,
     unanswered,
     user,
+    users,
   };
 }
 export default connect(mapStateToProps)(Dashboard);
