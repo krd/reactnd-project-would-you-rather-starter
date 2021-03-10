@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import QuestionForm from './QuestionForm'
 import { Link, withRouter } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 
 class Question extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: false };
+  }
+
+  handleModalDisplay = () => {
+    console.log('handleModalDisplay... ', this.state);
+    this.setState(() => ({
+      show: !this.state.show,
+    }));
+  };
+
+
   render() {
     const { question, author } = this.props;
 
@@ -18,7 +32,7 @@ class Question extends Component {
             <Col></Col>
             <Col xs={6}>
               <div className="container">
-                <Link to={`/question/${question.id}`}>
+                <a onClick={this.handleModalDisplay} className="modal-link">
                   <div className="card py-4 h-100">
                     <div className="card-body text-center">
                       <img
@@ -27,21 +41,31 @@ class Question extends Component {
                         className="avatar"
                       />
                       <h4 className="text-uppercase m-0">
-                        {author.name} Asks Would You Rather...
+                        {author.name} Asks:
                       </h4>
                       <h4 className="text-uppercase m-0"> </h4>
                       <hr className="my-2" />
                       <h4>
-                        <span>{question.optionOne.text}, or...</span>
+                        <i>"Would You Rather {question.optionOne.text}, or..."</i>
                       </h4>
                     </div>
                   </div>
-                </Link>
+                </a>
               </div>
             </Col>
             <Col></Col>
           </Row>
         </Container>
+        <Modal show={this.state.show} centered onHide={this.handleModalDisplay}>
+          <Modal.Header closeButton onClick={this.handleModalDisplay}>
+            <Modal.Title>Cast Your Vote</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <QuestionForm id={question.id}/>
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal>
       </section>
     );
   }

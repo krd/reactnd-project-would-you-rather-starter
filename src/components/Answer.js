@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { ProgressBar } from 'react-bootstrap';
+import React from 'react';
+import { ProgressBar, Badge } from 'react-bootstrap';
 
 function Answer(props) {
-
-//   useEffect(() => {
-//     const voteClass = 'your-vote';
-
-//     if (userVote === 'optionOne') {
-//       const one = document.getElementById('optionOneBlock');
-//       console.log('one: ' + one);
-//       one.classList.add("your-vote")
-//     } else if (userVote === 'optionTwo') {
-//       const two = document.getElementById('optionTwoBlock');
-//       console.log('two: ' + two.classList);
-//       two.classList.add("your-vote")
-//     }
-
-//   })
 
   // TODO:  figure out how to insert className with hooks
   const { question, user, author } = props;
@@ -57,6 +42,7 @@ function Answer(props) {
                 <div className={optionOneVoteClass} id="optionOneBlock">
                   {userVote === 'optionOne' ? (
                     <div className="vote-badge">Your Vote</div>
+                    
                   ) : (
                     ''
                   )}
