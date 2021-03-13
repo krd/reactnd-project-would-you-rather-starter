@@ -1,4 +1,4 @@
-nav > .nav.nav-tabs {
+/* nav > .nav.nav-tabs {
   border: none;
   color: #fff;
   background: #272e38;
@@ -37,7 +37,58 @@ nav > div a.nav-item.nav-link:focus {
   color: #fff;
   border-radius: 0;
   transition: background 0.2s linear;
+} */
+
+/* *
+box-sizing: border-box */
+
+/* body {
+  background: #1A1E23
+  font-family: 'Lato', sans-serif
+  -webkit-font-smoothing: antialiased
 }
+
+
+nav
+  position: relative
+  padding-bottom: 12px
+  .line
+    height: 2px
+    position: absolute
+    bottom: 0
+    margin: 10px 0 0 0
+    background: #FF1847
+  ul
+    padding: 0
+    margin: 0
+    list-style: none
+    display: flex
+    li
+      margin: 0 40px 0 0
+      opacity: .4
+      transition: all 0.4s ease
+      &:hover
+        opacity: .7
+      &.active
+        opacity: 1
+      &:last-child
+        margin-right: 0
+      a
+        text-decoration: none
+        color: #fff
+        text-transform: uppercase
+        display: block
+        font-weight: 600
+        letter-spacing: .2em
+        font-size: 14px
+        
+//Center
+body {
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+} */
 
 .people-header {
   height: 100%;
@@ -144,3 +195,24 @@ nav > div a.nav-item.nav-link:focus {
   justify-content: center;
   align-items: center;
 }
+
+/* .line {
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0 0 0;
+    background: #FF1847;
+} */
+
+#page-wrap { 
+    max-width: 500px; 
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+html {
+    scroll-behavior: smooth;
+}  
+
+.scroll {
+    background-color: #f1f1f1;
+  }

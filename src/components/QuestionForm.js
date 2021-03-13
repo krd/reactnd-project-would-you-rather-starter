@@ -22,13 +22,13 @@ class QuestionForm extends Component {
 
   componentDidMount = () => {
     const { optionOne, optionTwo } = this.props.question;
-    const optionOneText = '\"Would you rather ' + optionOne.text + '?\"';
+    const optionOneText = '"Would you rather ' + optionOne.text + '?"';
 
     this.setState(() => ({
       ...optionOne,
       text: optionOneText,
     }));
-    const optionTwoText = '\"Would you rather ' + optionTwo.text + '?\"';
+    const optionTwoText = '"Would you rather ' + optionTwo.text + '?"';
     this.setState(() => ({
       ...optionTwo,
       text: optionTwoText,

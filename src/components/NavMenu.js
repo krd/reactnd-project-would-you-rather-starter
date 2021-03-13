@@ -6,7 +6,59 @@ import { NavLink, withRouter, Router, Link } from 'react-router-dom';
 
 function NavMenu(props) {
   const { name, avatarURL } = props.user;
+  document.body.style.id = "page-top";
   return (
+    // <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" >
+    //   <div class="container">
+    //     <a class="navbar-brand js-scroll-trigger" href="/">
+    //       Would You Rather?
+    //     </a>
+    //     <button
+    //       class="navbar-toggler navbar-toggler-right"
+    //       type="button"
+    //       data-toggle="collapse"
+    //       data-target="#navbarResponsive"
+    //       aria-controls="navbarResponsive"
+    //       aria-expanded="false"
+    //       aria-label="Toggle navigation"
+    //     >
+    //       Menu
+    //       <i class="fas fa-bars"></i>
+    //     </button>
+    //     <div class="collapse navbar-collapse page-wrap" id="navbarResponsive">
+    //       <ul class="navbar-nav ml-auto ">
+    //       <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
+    //         <li class="nav-item">
+    //           <a class="nav-link js-scroll-trigger" href="/dashboard">
+    //             Dashboard
+    //           </a>
+    //         </li>
+    //         <li class="nav-item">
+    //           <a class="nav-link js-scroll-trigger" href="/new">
+    //             ADD
+    //           </a>
+    //         </li>
+    //         <li class="nav-item">
+    //           <a class="nav-link js-scroll-trigger" href="/leaderboard">
+    //             Standings
+    //           </a>
+    //         </li>
+    //         <li class="nav-item">
+    //           <a class="nav-link js-scroll-trigger" href="/logout">
+    //             Login
+    //           </a>
+    //         </li>
+    //         <li class="nav-item">
+    //           <a class="nav-link js-scroll-trigger" href="/tabs">
+    //             Tabs
+    //           </a>
+    //         </li>
+    //         <div class="line"></div>
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </nav>
+
     <Navbar
       className="navbar navbar-expand-lg navbar-light fixed-top"
       collapseOnSelect
@@ -19,6 +71,7 @@ function NavMenu(props) {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
+    
         <Nav className="mr-auto">
           <NavItem eventkey={1} href="/dashboard">
             <Nav.Link
@@ -27,8 +80,9 @@ function NavMenu(props) {
               to="/dashboard"
             >
               Dashboard
-            </Nav.Link>
+            </Nav.Link>       
           </NavItem>
+  
           <NavItem href="/new">
             <Nav.Link
               as={Link}
@@ -39,8 +93,8 @@ function NavMenu(props) {
             </Nav.Link>
           </NavItem>
 
-          <NavItem href="/leaderboard">
-            <Nav.Link
+            <NavItem href="/leaderboard">
+              <Nav.Link
               as={Link}
               className="nav-link js-scroll-trigger"
               to="/leaderboard"
@@ -48,12 +102,20 @@ function NavMenu(props) {
               Leader Board
             </Nav.Link>
           </NavItem>
+          <NavItem href="/tabs">
+              <Nav.Link
+              as={Link}
+              className="nav-link js-scroll-trigger"
+              to="/tabs"
+            >
+              Tabs
+            </Nav.Link>
+          </NavItem>
         </Nav>
         <Nav>
           <NavItem>
             <NavItem href="/">
             <Nav.Link as={Link} to="/" className="nav-link js-scroll-trigger">
-              {/* <div><img class="circle-sm" src={avatarURL}/></div> */}
               {name}
             </Nav.Link>
             </NavItem>
@@ -65,9 +127,18 @@ function NavMenu(props) {
           </NavItem>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>
+    </Navbar> 
   );
 }
+
+function handleScroll(e) {
+    let element = e.target
+    alert('SCROLLING')
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      // do something at end of scroll
+      alert('DONE SCROLLING')
+    }
+  }
 
 function logout(props) {
   const { dispatch } = props;

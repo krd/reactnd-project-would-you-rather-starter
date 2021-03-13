@@ -8,6 +8,7 @@ import NewQuestion from './NewQuestion';
 import NavMenu from './NavMenu';
 import LeaderBoard from './LeaderBoard';
 import Login from './Login';
+import Tabs from './Tabs';
 import { handleInitialData } from '../actions/shared';
 
 class App extends Component {
@@ -17,10 +18,26 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
+//   componentDidMount() {
+//     window.addEventListener("scroll", this.handleScroll);
+//   }
+
+//   componentWillUnmount() {
+//     window.removeEventListener("scroll", this.handleScroll);
+//   }
+
+//   handleScroll = () => {
+//     if (window.scrollY > 20) {
+//       document.querySelector(".navbar").className = "navbar scroll";
+//     } else {
+//       document.querySelector(".navbar").className = "navbar";
+//     }
+//   };
+
+
   render() {
     const { user } = this.props;
     if (user) {
-      console.log(' Going to app: ', this.props);
       return <AppScreen user={user} />;
     }
     return <LoginScreen />;
@@ -40,10 +57,6 @@ function AppScreen(props) {
     <div>
       <Router>
         <Fragment>
-          {/* <Home/>
-          <LeaderBoard />
-          <Dashboard /> */}
-          {/* <Nav2 user={props.user} /> */}
           <NavMenu user={props.user} />
           <div>
           <Switch>
@@ -53,6 +66,7 @@ function AppScreen(props) {
           <Route path="/question/:id" component={QuestionForm} />
           <Route path="/new" exact component={NewQuestion} />
           <Route path="/login" component={Login} />
+          <Route path="/tabs" component={Tabs} />
           </Switch>
           </div>
         </Fragment>
